@@ -12,6 +12,11 @@ server.use(restify.queryParser());
 // Pase the body.
 server.use(restify.bodyParser());
 
+server.get("/", function(request, response, next) {
+response.send("Hello");
+next();
+})
+
 server.get('/events', eventRoutes.eventsByLocation);
 
 var port = (process.env.PORT || 8080);
